@@ -19,10 +19,24 @@ public class ExerciseService {
     }
     
     public Exercises getExercise(String id) {
-        return exercises.stream().filter(t -> t.getId().equals(id)).findFirst().get();
+        return exercises.stream().filter(e -> e.getId().equals(id)).findFirst().get();
     }
 
     public void addExercise(Exercises exercise) {
         exercises.add(exercise);
+    }
+
+    void updateExercise(Exercises exercise, String id) {
+        for(int i = 0; i < exercises.size(); i++) {
+            Exercises e = exercises.get(i);
+            if(e.getId().equals(id)) {
+                exercises.set(i, e);
+                return;
+            }
+        }
+    }
+
+    public void deleteExercise(String id) {
+        exercises.removeIf(e -> e.getId().equals(id));
     }
 }

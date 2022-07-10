@@ -28,4 +28,14 @@ public class ExercisesController {
     public void addExercise(@RequestBody Exercises exercise) {
         exerciseService.addExercise(exercise);
     }
+    
+    @RequestMapping(method=RequestMethod.PUT, value="/exercises/{id}")
+    public void updateExercise(@RequestBody Exercises exercise, @PathVariable String id) {
+        exerciseService.updateExercise(exercise, id);
+    }
+    
+    @RequestMapping(method=RequestMethod.DELETE, value="/exercises/{id}")
+    public void deleteExercise(@RequestBody Exercises exercise, @PathVariable String id) {
+        exerciseService.deleteExercise(id);
+    }
 }

@@ -1,6 +1,7 @@
 package com.mycompany.exercise.exercises;
 
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +21,7 @@ public class ExercisesController {
     }
     
     @RequestMapping("/exercises/{id}")
-    public Exercises getExercise(@PathVariable String id) {
+    public Optional<Exercises> getExercise(@PathVariable String id) {
         return exerciseService.getExercise(id);
     }
     
@@ -31,7 +32,7 @@ public class ExercisesController {
     
     @RequestMapping(method=RequestMethod.PUT, value="/exercises/{id}")
     public void updateExercise(@RequestBody Exercises exercise, @PathVariable String id) {
-        exerciseService.updateExercise(exercise, id);
+        exerciseService.updateExercise(exercise);
     }
     
     @RequestMapping(method=RequestMethod.DELETE, value="/exercises/{id}")

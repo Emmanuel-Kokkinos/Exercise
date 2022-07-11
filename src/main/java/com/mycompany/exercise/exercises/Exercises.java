@@ -1,7 +1,12 @@
 package com.mycompany.exercise.exercises;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Exercises {
     
+    @Id
     private String id;
     private String name;
 
